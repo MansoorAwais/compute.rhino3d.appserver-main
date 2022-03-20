@@ -37,13 +37,16 @@
         <div id="loader"></div> 
         <div id="container">
             <div id="overlay">
-                <div>
+              
+  
+              
+              <div>
                   <label for="Teeth Number">Teeth Number</label>
-                  <input type="number" id="Teeth Number" value="21">
+                  <input type="range" id="Teeth Number" min="1" max="101" value="21" step="1">
                 </div>
                 <div>
                   <label for="Rotation">Rotation</label>
-                  <input type="number" id="Rotation" value="155">
+                  <input type="range" id="Rotation" min="0" max="360" value="0" step="1">
                 </div>
                 <div><button id="downloadButton" disabled>Download</button></div>
                 <div><a href="gears.gh" download="gears.gh.html">Save source code</a></div>

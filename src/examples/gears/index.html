@@ -9,11 +9,12 @@
                 margin: 0;
                 font-family: Arial, Helvetica, sans-serif;
                 margin: 0; font-family: Oxanium, Helvetica, sans-serif; 
-                
-               
-                background-image: url(https://img.freepik.com/free-vector/abstract-gears-wheel-cock-technology-background_34926-536.jpg?size=626&ext=jpg);
+
+                /* background-image: url(https://www.skyfilabs.com/blog/top-online-courses-for-mechanical-engineering-students);
                   
-                background-size: cover;
+                background-size: cover; */
+                
+                
                
             }
             .xxx {
@@ -36,16 +37,16 @@
                 -webkit-appearance: none;
                 width: 40px;
                 height: 20px;
-                background: rgb(230, 0, 255);
+                background: rgb(0, 247, 255);
                 cursor: pointer;
             }
-            #overlay {z-index: 1; width: 70%; background-color: rgba(255, 255, 255, 0);color: rgb(255, 255, 255); cursor: pointer; font-weight:bold}
-            /* canvas { width: 100%; height: 100%; } */
-            /* input[type=range] { width: 100%; } */
-            #container { position: relative;
-               }
-            /* #container canvas, #overlay { position: absolute; } */
-            /* #overlay { z-index: 1; width: 100%; } */
+            #overlay {z-index: 1; width: 30%; background-color: rgba(0, 0, 0, 0.322);color: rgb(255, 255, 255); cursor: pointer; font-weight:bold}
+            /* canvas { width: 100%; height: 100%; }  */
+
+            /* #container { position: relative;
+                }  */
+
+            #container canvas, #overlay { position: absolute; }
             #overlay div { padding: 5px; }
             #loader {
                 border: 5px solid #f3f3f3; /* Light grey */
@@ -66,9 +67,13 @@
         </style>
     </head>
     <body>
+
+     
         <div id="loader"></div> 
         <div id="container">
             <div id="overlay">
+              <h1>GEAR MECHANICS</h1>
+              <h3>Customize Gearing For Product Development</h3>
               
   
               
@@ -164,12 +169,31 @@ function init() {
     camera.position.set(1, -1, 1) // like perspective view
 
     // very light grey for background, like rhino
-    scene.background = new THREE.Color('black')
+    // scene.background = new THREE.Color('black')
 
 
-const material = new THREE.MeshBasicMaterial( { color: 0xffffff, envMap: textureCube } );
-  
+    let material, cubeMap
 
+    // load a pbr material
+    const tl = new THREE.TextureLoader()
+    // tl.setPath('--')
+    material = new THREE.MeshPhysicalMaterial()
+    // material.map          = tl.load('---.png')
+    // material.aoMmap       = tl.load('----.png')
+    // material.normalMap    = tl.load('---.png')
+    // material.metalnessMap = tl.load('---.png')
+    material.metalness = 0.2
+    material.roughness = 0.0
+
+    cubeMap = new THREE.CubeTextureLoader()
+        .setPath('textures/cube/mechanical/')
+        .load( [ 'px.jpg', 'nx.jpg', 'py.jpg', 'ny.jpg', 'pz.jpg', 'nz.jpg' ] )
+    
+    scene.background = cubeMap
+    material.envMap = scene.background
+
+    
+ 
     // create the renderer and add it to the html
     renderer = new THREE.WebGLRenderer({ antialias: true })
     renderer.setPixelRatio( window.devicePixelRatio )

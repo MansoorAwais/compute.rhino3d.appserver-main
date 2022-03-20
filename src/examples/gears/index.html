@@ -10,10 +10,11 @@
                 font-family: Arial, Helvetica, sans-serif;
                 margin: 0; font-family: Oxanium, Helvetica, sans-serif; 
                 
-                /* background-image: url(https://rb.gy/6p2onk); */
+               
                 background-image: url(https://img.freepik.com/free-vector/abstract-gears-wheel-cock-technology-background_34926-536.jpg?size=626&ext=jpg);
-                
+                  
                 background-size: cover;
+               
             }
             .xxx {
                 -webkit-appearance:none;
@@ -41,7 +42,8 @@
             #overlay {z-index: 1; width: 70%; background-color: rgba(255, 255, 255, 0);color: rgb(255, 255, 255); cursor: pointer; font-weight:bold}
             /* canvas { width: 100%; height: 100%; } */
             /* input[type=range] { width: 100%; } */
-            /* #container { position: relative; } */
+            #container { position: relative;
+               }
             /* #container canvas, #overlay { position: absolute; } */
             /* #overlay { z-index: 1; width: 100%; } */
             #overlay div { padding: 5px; }
@@ -162,7 +164,11 @@ function init() {
     camera.position.set(1, -1, 1) // like perspective view
 
     // very light grey for background, like rhino
-    scene.background = new THREE.Color('whitesmoke')
+    scene.background = new THREE.Color('black')
+
+
+const material = new THREE.MeshBasicMaterial( { color: 0xffffff, envMap: textureCube } );
+  
 
     // create the renderer and add it to the html
     renderer = new THREE.WebGLRenderer({ antialias: true })

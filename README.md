@@ -1,4 +1,4 @@
-- GEAR MECAHNICS --
+-- GEAR MECAHNICS --
 
 Description >>
 
